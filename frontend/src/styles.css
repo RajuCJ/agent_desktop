@@ -1,0 +1,431 @@
+/* Accenture Brand Colors and Global Styles - ADA Compliant */
+:root {
+  --accenture-purple: #A100FF;
+  --accenture-dark-purple: #7B00CC;
+  --accenture-black: #000000;
+  --accenture-gray: #F5F5F5;
+  --accenture-light-gray: #FAFAFA;
+  --accenture-border: #CCCCCC;
+  --accenture-text: #1A1A1A;
+  --accenture-text-light: #4F4F4F;
+  --accenture-text-lighter: #767676;
+  --success-green: #0B7A3E;
+  --warning-orange: #D14900;
+  --error-red: #C5000F;
+  --info-blue: #005A9E;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --focus-outline: 2px solid #005A9E;
+  --focus-outline-offset: 2px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #FFFFFF;
+  color: var(--accenture-text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+.app-header {
+  background: var(--accenture-black);
+  color: white;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.accenture-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.app-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin: 0;
+  color: white;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Main Layout */
+.main-content {
+  padding: 24px;
+  min-height: calc(100vh - 80px);
+  background: #F8F8F8;
+}
+
+/* Card Styles - ADA Compliant */
+.card {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s ease;
+  border: 1px solid #E0E0E0;
+}
+
+.card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:focus-within {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accenture-text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.card-icon {
+  color: var(--accenture-purple);
+  font-size: 20px;
+}
+
+/* Button Styles - ADA Compliant */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:focus {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.btn:active {
+  opacity: 0.8;
+}
+
+.btn-primary {
+  background: var(--accenture-purple);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accenture-dark-purple);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #CCCCCC;
+  color: #767676;
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--accenture-text);
+  border: 2px solid var(--accenture-purple);
+}
+
+.btn-secondary:hover {
+  background: #F5F0FF;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accenture-text);
+  border: 1px solid var(--accenture-border);
+}
+
+.btn-outline:hover {
+  background: var(--accenture-gray);
+  border-color: var(--accenture-text-light);
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Status Badge - ADA Compliant Colors */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  border: 1px solid;
+}
+
+.badge-success {
+  background: #E6F4EC;
+  color: var(--success-green);
+  border-color: var(--success-green);
+}
+
+.badge-warning {
+  background: #FFF4E5;
+  color: var(--warning-orange);
+  border-color: var(--warning-orange);
+}
+
+.badge-error {
+  background: #FFEBEE;
+  color: var(--error-red);
+  border-color: var(--error-red);
+}
+
+.badge-info {
+  background: #E3F2FD;
+  color: var(--info-blue);
+  border-color: var(--info-blue);
+}
+
+/* Table Styles - ADA Compliant */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 12px;
+  background: var(--accenture-gray);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--accenture-text);
+  border-bottom: 2px solid var(--accenture-text);
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--accenture-border);
+  font-size: 14px;
+  color: var(--accenture-text);
+}
+
+.table tr:hover {
+  background: var(--accenture-light-gray);
+}
+
+.table tbody tr:focus-within {
+  outline: var(--focus-outline);
+  outline-offset: -2px;
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--accenture-purple);
+}
+
+.spinner {
+  border: 3px solid var(--accenture-gray);
+  border-top: 3px solid var(--accenture-purple);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Info Row */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--accenture-border);
+}
+
+.info-label {
+  font-weight: 500;
+  color: var(--accenture-text-light);
+  font-size: 14px;
+}
+
+.info-value {
+  font-weight: 500;
+  color: var(--accenture-text);
+  font-size: 14px;
+}
+
+/* Form Elements - ADA Compliant */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accenture-text);
+}
+
+.required {
+  color: var(--error-red);
+  font-weight: 700;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--accenture-border);
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+  background: white;
+  color: var(--accenture-text);
+  min-height: 44px;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: var(--focus-outline);
+  outline-offset: 0;
+  border-color: var(--info-blue);
+}
+
+.form-input:hover,
+.form-select:hover {
+  border-color: var(--accenture-text-light);
+}
+
+.form-input::placeholder {
+  color: var(--accenture-text-lighter);
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+/* Search Container */
+.search-container {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.search-container .form-group {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .app-title {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    padding-top: 8px;
+  }
+  
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}

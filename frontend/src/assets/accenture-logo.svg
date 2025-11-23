@@ -1,0 +1,11 @@
+<!-- Accenture Logo SVG for Banking Agent Desktop -->
+<svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Accenture Text -->
+  <text x="5" y="35" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="white" letter-spacing="1">
+    Accenture
+  </text>
+  
+  <!-- Accent Symbol (>) -->
+  <circle cx="185" cy="25" r="8" fill="#A100FF" opacity="0.8"/>
+  <circle cx="192" cy="25" r="6" fill="white"/>
+</svg>
