@@ -1,7 +1,9 @@
 package com.accenture.banking.controller;
 
 import com.accenture.banking.dto.CustomerDTO;
+import com.accenture.banking.dto.CustomerJourneyDTO;
 import com.accenture.banking.service.CustomerService;
+import com.accenture.banking.service.JourneyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,7 @@ import java.util.List;
 public class CustomerController {
     
     private final CustomerService customerService;
+    private final JourneyService journeyService;
     
     @GetMapping
     public ResponseEntity<List<CustomerDTO>> getAllCustomers() {
@@ -28,6 +31,11 @@ public class CustomerController {
     @GetMapping("/customer-id/{customerId}")
     public ResponseEntity<CustomerDTO> getCustomerByCustomerId(@PathVariable String customerId) {
         return ResponseEntity.ok(customerService.getCustomerByCustomerId(customerId));
+    }
+    
+    @GetMapping("/{id}/journey")
+    public ResponseEntity<CustomerJourneyDTO> getCustomerJourney(@PathVariable Long id) {
+        return ResponseEntity.ok(journeyService.getCustomerJourney(id));
     }
     
     @PostMapping

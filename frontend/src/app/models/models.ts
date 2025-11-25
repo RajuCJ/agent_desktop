@@ -54,3 +54,17 @@ export interface Summary {
   riskAssessment: string;
   recommendations: string;
 }
+
+export interface CustomerJourney {
+  customer: Customer;
+  events: Event[];
+  stats: JourneyStats;
+}
+
+export interface JourneyStats {
+  totalEvents: number;
+  completedEvents: number;
+  pendingEvents: number;
+  lastInteractionDate: string;
+  mostUsedChannel: string;
+}
