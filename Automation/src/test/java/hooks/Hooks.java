@@ -1,10 +1,11 @@
 package hooks;
 
-
 import factory.Base;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+
 import org.apache.commons.io.FileUtils;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -15,25 +16,41 @@ import java.util.Properties;
 
 public class Hooks {
 
-WebDriver driver;
-Properties p;
+    WebDriver driver;
+    Properties p;
 
-@Before
-public void setUp() throws Exception {
-    driver= Base.initializeBrowser();
-    p=Base.getProperties();
-    driver.get(p.getProperty("appURL"));
-    driver.manage().window().maximize();
+    @Before
+    public void setUp() throws Exception {
 
-}
+        // Initialize driver (stored in Base)
+        driver = Base.initializeBrowser();
 
-@After
-    public void tearDown() throws IOException {
-    TakesScreenshot ts= (TakesScreenshot)driver;
-    File src = ts.getScreenshotAs(OutputType.FILE);
-    File dest = new File("Screenshots/Homepage.png");
-    FileUtils.copyFile(src, dest);
-    driver.quit();
-}
+        // Load config
+        p = Base.getProperties();
+
+        // Open application
+        driver.get(p.getProperty("appURL"));
+        driver.manage().window().maximize();
+    }
+
+    @After
+    public void tearDown(Scenario scenario) throws IOException {
+
+        if (driver != null && scenario.isFailed()) {
+
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            File src = ts.getScreenshotAs(OutputType.FILE);
+
+            File dest = new File(
+                    "Screenshots/" + scenario.getName().replaceAll(" ", "_") + ".png"
+            );
+
+            FileUtils.copyFile(src, dest);
+        }
+
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
 }

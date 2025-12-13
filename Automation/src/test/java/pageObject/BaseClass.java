@@ -4,7 +4,7 @@ package pageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class BaseClass {
+public abstract class BaseClass {
 
     public WebDriver driver;
     public BaseClass(WebDriver driver){
@@ -12,4 +12,5 @@ public class BaseClass {
         PageFactory.initElements(driver, this);
     }
 
+    public abstract void loginCredentials() throws Exception;
 }
