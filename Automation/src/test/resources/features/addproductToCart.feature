@@ -4,8 +4,4 @@ Feature: Successful Checkout of the cart
 
   @add
   Scenario: Add products to cart
-   Given launch the website
-    And login with valid credentials
-    When User able to select the product
-    And do the add to cart process
-    Then validate for check out option
+    Given enter the login credentials

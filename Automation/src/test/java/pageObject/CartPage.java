@@ -1,93 +1,46 @@
 package pageObject;
 
 import factory.Base;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.Properties;
 
-public class CartPage extends BaseClass {
+public class CartPage extends BaseClass{
 
+
+    private static final Logger log = LoggerFactory.getLogger(CartPage.class);
+    WebDriverWait wait;
+    Actions actions;
     Properties p;
 
-    public CartPage(WebDriver driver) {
+    public CartPage(WebDriver driver) throws Exception {
         super(driver);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.actions = new Actions(driver);
+        this.p= Base.getProperties();
     }
-
-    @FindBy(xpath = "//span[text()='Account']")
-    private WebElement loginAccount;
-
-    @FindBy(name = "customer[email]")
-    private WebElement email;
-
-    @FindBy(name = "customer[password]")
-    private WebElement password;
-
-    @FindBy(xpath = "//form[@id='customer_login']//button[text()='Sign In']")
-    private WebElement signIn;
-
-    @FindBy(xpath = "//a[normalize-space()='Menstural Care']")
-    private WebElement menstralCareIcon;
-
-    @FindBy(xpath = "(//span[@class='m-menu__arrow'])[1]")
-    private WebElement mensturalDropdown;
-
-    @FindBy(xpath = "//a[normalize-space()='Sanitary Pads']")
-    private WebElement sanitaryPads;
-
-    @FindBy(xpath = "//a[contains(normalize-space(.), 'Bliss Organic Sanitary Pads XL Fluffy')]")
-    private WebElement checktheItem;
-
-    @FindBy(xpath = "//div[@data-product-id='8853926052122']//span[text()='Select options']")
-    private WebElement selectOptions;
-
-    @FindBy(xpath = "//span[text()='Add to cart']")
-    private WebElement addToCartIcon;
-
-    @FindBy(xpath = "//span[text()='Checkout']")
-    private WebElement checkOut;
-
-    public void loginAccount() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
-        wait.until(ExpectedConditions.elementToBeClickable(loginAccount));
-
-        loginAccount.click();
-    }
+    //Alert alert = driver.switchTo().alert();
+    @FindBy(id = "user-name") private WebElement username;
+    @FindBy(id = "password") private WebElement password;
+    @FindBy(id = "login-button") private WebElement login;
 
     @Override
     public void loginCredentials() throws Exception {
-        p = Base.getProperties();
-        email.sendKeys(p.getProperty("email"));
-        password.sendKeys(p.getProperty("pass"));
-        signIn.click();
+        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(p.getProperty("user"));
+        wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(p.getProperty("pass"));
+        login.click();
+       //alert.accept();
+
+
+
     }
 
-    public void setMensturalDropdown() {
-        mensturalDropdown.click();
-    }
 
-    public void setSanitaryPads() {
-        sanitaryPads.click();
-    }
-
-    public boolean setChecktheItem() {
-        return checktheItem.isDisplayed();
-    }
-
-    public void selectOptions() {
-        selectOptions.click();
-    }
-
-    public void setAddToCartIcon() {
-        addToCartIcon.click();
-    }
-
-    public boolean setCheckOut() {
-        return checkOut.isDisplayed();
-    }
 }

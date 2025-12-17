@@ -8,6 +8,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class Base {
@@ -15,7 +17,6 @@ public class Base {
     private static WebDriver driver;
     private static Properties p;
 
-    // Initialize browser only once
     public static WebDriver initializeBrowser() throws Exception {
 
         if (driver != null) {
@@ -41,6 +42,11 @@ public class Base {
                 case "chrome":
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--disable-notifications");
+                    Map<String, Object> prefs = new HashMap<>();
+                    prefs.put("credentials_enable_service", false);
+                    prefs.put("profile.password_manager_enabled", false);
+
+                    options.setExperimentalOption("prefs", prefs);
                     driver = new ChromeDriver(options);
                     break;
 
@@ -67,7 +73,6 @@ public class Base {
         return driver;
     }
 
-    // Load config only once
     public static Properties getProperties() throws Exception {
 
         if (p == null) {

@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -22,15 +23,12 @@ public class Hooks {
     @Before
     public void setUp() throws Exception {
 
-        // Initialize driver (stored in Base)
         driver = Base.initializeBrowser();
-
-        // Load config
         p = Base.getProperties();
-
-        // Open application
+       // driver.manage().window().setSize(new Dimension(1920, 1080));
         driver.get(p.getProperty("appURL"));
         driver.manage().window().maximize();
+
     }
 
     @After
@@ -49,7 +47,7 @@ public class Hooks {
         }
 
         if (driver != null) {
-            driver.quit();
+          // driver.quit();
         }
     }
 

@@ -11,6 +11,5 @@ public abstract class BaseClass {
         this.driver=driver;
         PageFactory.initElements(driver, this);
     }
-
     public abstract void loginCredentials() throws Exception;
 }
