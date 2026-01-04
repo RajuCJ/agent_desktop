@@ -36,11 +36,8 @@ public class CartPage extends BaseClass{
         wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(p.getProperty("user"));
         wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(p.getProperty("pass"));
         login.click();
-       //alert.accept();
-
-
-
     }
+
 
 
 }

@@ -14,7 +14,7 @@ import java.util.Properties;
 
 public class Base {
 
-    private static WebDriver driver;
+    public static WebDriver driver;
     private static Properties p;
 
     public static WebDriver initializeBrowser() throws Exception {
@@ -47,6 +47,7 @@ public class Base {
                     prefs.put("profile.password_manager_enabled", false);
 
                     options.setExperimentalOption("prefs", prefs);
+
                     driver = new ChromeDriver(options);
                     break;
 

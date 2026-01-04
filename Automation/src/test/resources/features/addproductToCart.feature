@@ -5,3 +5,5 @@ Feature: Successful Checkout of the cart
   @add
   Scenario: Add products to cart
     Given enter the login credentials
+    When list the number of products
+    Then add the item to cart
