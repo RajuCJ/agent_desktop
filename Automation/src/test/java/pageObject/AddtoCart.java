@@ -12,12 +12,18 @@ public class AddtoCart {
     @FindBy(xpath = "//button[@data-test='add-to-cart' and text()='Add to cart']")
     private WebElement addToCart;
 
+    @FindBy(xpath = "//span[@data-test='shopping-cart-badge']") private WebElement shoppingCartIcon;
+
     public AddtoCart() {
         PageFactory.initElements(driver, this);
     }
 
     public void cart(){
-        addToCart.click();
+
+        if(addToCart.isDisplayed()){
+            addToCart.click();
+        }
+        shoppingCartIcon.click();
     }
 
 
